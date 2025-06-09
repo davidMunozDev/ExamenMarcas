@@ -3,6 +3,8 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* media queries para tablet y escritorio */
@@ -50,7 +52,7 @@ a:hover {
     color: blue;
 }
 
-.lista-platos {
+#coctails {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
@@ -58,12 +60,12 @@ a:hover {
 }
 
 @media (min-width: 768px) {
-    .lista-platos {
+    #coctails {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-.plato {
+.cocktail-card {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -72,4 +74,13 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.cocktail-card img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 12px;
+    object-fit: cover;
 }
