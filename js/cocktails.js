@@ -1,3 +1,5 @@
+import { store } from "./store.js";
+
 function httpService(url) {
     return fetch(url)
         .then(response => {
@@ -17,9 +19,8 @@ function renderCocktails(cocktails) {
             <p>${cocktail.strInstructions || ''}</p>
             <img src="${cocktail.strDrinkThumb || ''}" alt="${cocktail.name || 'Cocktail'}" />
         `;
-        // Listener para hacer la card clickable
         card.addEventListener('click', () => {
-            console.log(cocktail.strDrink);
+            store.addPlato(cocktail.strDrink)
         });
         container.appendChild(card);
     });
@@ -28,7 +29,6 @@ function renderCocktails(cocktails) {
 async function init() {
     const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita';
     const data = await httpService(url)
-    console.log(data.drinks);
     renderCocktails(data.drinks);
 }
 
